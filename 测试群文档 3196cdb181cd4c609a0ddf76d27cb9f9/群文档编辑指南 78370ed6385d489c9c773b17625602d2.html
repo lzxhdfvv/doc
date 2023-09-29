@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>群文档编辑指南</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="78370ed6-385d-489c-9c77-3b17625602d2" class="page sans"><header><img class="page-cover-image" src="%E7%BE%A4%E6%96%87%E6%A1%A3%E7%BC%96%E8%BE%91%E6%8C%87%E5%8D%97%2078370ed6385d489c9c773b17625602d2/wallpaper_minecraft_mangrove_swamp_3840x2160_compressed.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="%E7%BE%A4%E6%96%87%E6%A1%A3%E7%BC%96%E8%BE%91%E6%8C%87%E5%8D%97%2078370ed6385d489c9c773b17625602d2/Impulse_Command_Block.gif"/></div><h1 class="page-title">群文档编辑指南</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesPerson"><path d="M10.9536 7.90088C12.217 7.90088 13.2559 6.79468 13.2559 5.38525C13.2559 4.01514 12.2114 2.92017 10.9536 2.92017C9.70142 2.92017 8.65137 4.02637 8.65698 5.39087C8.6626 6.79468 9.69019 7.90088 10.9536 7.90088ZM4.4231 8.03003C5.52368 8.03003 6.42212 7.05859 6.42212 5.83447C6.42212 4.63843 5.51245 3.68945 4.4231 3.68945C3.33374 3.68945 2.41846 4.64966 2.41846 5.84009C2.42407 7.05859 3.32251 8.03003 4.4231 8.03003ZM1.37964 13.168H5.49561C4.87231 12.292 5.43384 10.6074 6.78711 9.51807C6.18628 9.14746 5.37769 8.87231 4.4231 8.87231C1.95239 8.87231 0.262207 10.6917 0.262207 12.1628C0.262207 12.7974 0.548584 13.168 1.37964 13.168ZM7.50024 13.168H14.407C15.4009 13.168 15.7322 12.8423 15.7322 12.2864C15.7322 10.8489 13.8679 8.88354 10.9536 8.88354C8.04492 8.88354 6.17505 10.8489 6.17505 12.2864C6.17505 12.8423 6.50635 13.168 7.50024 13.168Z"></path></svg></span>Owner</th><td><span class="user"><img src="%E2%80%BC%EF%B8%8F%E5%85%A5%E7%BE%A4%E5%BF%85%E8%AF%BB%203b5fc443be1b4b5dabda53be45551830/06_IMG_20230422_214251.jpg" class="icon user-icon"/>PumpkinJui</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><td><span class="selected-value select-value-color-blue">Undone</span></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Last edited time</th><td><time>@2023年9月29日 8:20</time></td></tr><tr class="property-row property-row-last_edited_by"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedBy"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 10.4229C6.05176 10.4229 4.54785 11.1133 3.83008 11.9131C2.90039 10.9082 2.33301 9.55469 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 9.55469 13.1064 10.9082 12.1699 11.9131C11.4521 11.1133 9.94824 10.4229 8 10.4229ZM8 9.30176C9.32617 9.30859 10.3516 8.18066 10.3516 6.71094C10.3516 5.33008 9.31934 4.18164 8 4.18164C6.6875 4.18164 5.6416 5.33008 5.64844 6.71094C5.65527 8.18066 6.68066 9.28809 8 9.30176Z"></path></svg></span>Last edited by</th><td><span class="user"><img src="%E2%80%BC%EF%B8%8F%E5%85%A5%E7%BE%A4%E5%BF%85%E8%AF%BB%203b5fc443be1b4b5dabda53be45551830/06_IMG_20230422_214251.jpg" class="icon user-icon"/>PumpkinJui</span></td></tr></tbody></table></header><div class="page-body"><p id="6ec5ff5d-e04c-48be-9922-cadf193d2474" class="">本页面用于规范群文档编辑的细枝末节，并对编辑提出指导。</p><p id="dd4c9777-ce25-4607-adb6-e810d892fc65" class="">如果你真的不想读这页东西或者认为过于麻烦，可以写好以后让我调格式。</p><h2 id="8472519c-b009-48d0-b559-b3396d91da85" class="">Notion 相关</h2><ul id="cb7508d7-9d4d-43ad-8006-2dbd71aff2b7" class="toggle"><li><details open=""><summary>我的 Notion 访问速度很慢。</summary><p id="1db6e4cf-c98a-48a7-a167-446f89237fdf" class="">这个……其实现在并没有什么好的解决方法。</p><ul id="2f6c78d0-217b-4202-9cb4-01500fc96b5e" class="bulleted-list"><li style="list-style-type:disc">目前互联网上使用相对广泛的 <a href="https://www.notionfaster.org/">Notion-faster</a> 项目可能会缓解此问题，但 <em>目前 </em>我们还没有成功过。</li></ul><ul id="2b9e88d4-af87-402b-b348-39f16c13058d" class="bulleted-list"><li style="list-style-type:disc">此外，有<a href="https://zhuanlan.zhihu.com/p/388207457">相关文章</a>称使用联通网络会速度较快，但 <em>目前 </em>我们没有找到合适的联通网络用户对此进行测试，并且我们自己应该也不是。</li></ul><ul id="0d9bd22f-7f05-4e58-9488-2db9c3ebecc6" class="bulleted-list"><li style="list-style-type:disc">此外的此外，使用 Notion 的各平台客户端 <em>有可能 </em>会提升速度。南瓜汁使用的 Android 客户端速度似乎明显提升，但量筒使用的 Windows 客户端似乎并没有。同时，安卓等平台的客户端下载可能需要拥有 <em>特殊手段</em>。</li></ul><ul id="be45f858-ff64-4dfc-9060-c388d42b5050" class="bulleted-list"><li style="list-style-type:disc">此外的此外的此外，直接使用 <em>特殊手段 </em>访问 Notion 可以 100% 解决这一问题。但是希望人没事，无论是金钱上还是人身上。</li></ul></details></li></ul><ul id="85e8d301-3550-4c17-af13-6a2b30f418e6" class="toggle"><li><details open=""><summary>我看不懂或懒得看英文。</summary><p id="8ad34868-eca8-4199-8d14-b4823ec1e49c" class="">你可以选择<a href="https://github.com/Reamd7/notion-zh_CN">汉化</a>。但由于 Notion 的高速更新，它可能不总是及时，也可能失效。同时，某些平台不受支持。<em>所以不如好好看看英文。</em></p></details></li></ul><ul id="22252dcc-3532-44da-a48f-c9a795943637" class="toggle"><li><details open=""><summary>我热爱学习，我要学习怎么使用 Notion。</summary><p id="6cb34f77-b8f6-4aad-ad8b-32995758f9cb" class="">首先别过来问我怎么用 qwq，我只是个会点 MarkDown 语法又会点排版的废物罢了（逃</p><p id="567e80be-7445-41d6-b9bd-cf9463e56a5e" class="">其次这类的教程网上其实应该很多的，要是随便学点能用就行，可以去哔哩哔哩<del>大学</del>、知乎、小红书什么的平台看看。</p><p id="f0ca1645-f200-46d6-a587-dac2e2e382be" class="">如果想要系统性学习，并且有主观能动性，并且能受得住少数派特有的长文介绍风格，可以尝试购买少数派付费栏目：<a href="https://sspai.com/series/303">Notion All in One：搭建高能效率系统</a>。虽然价格美丽但是少数派的栏目普遍质量过硬内容过干<del><em>，以致于买了以后根本不看</em></del>，值得一试。也可以在栏目目录中阅读试读文章以帮助选择。其中试读文章<a href="https://sspai.com/post/80485">《新手答疑 ｜Notion 新手最常见的 6 个问题》</a>中介绍了一些入门内容，包括 Notion 的客户端下载、账号注册、第三方汉化等。第三方汉化部分已被单独选入前文。</p></details></li></ul><ul id="85eed1e1-705e-4f63-8496-15d426bb62b5" class="toggle"><li><details open=""><summary>我不知道怎么注册。</summary><p id="a875673d-e576-4a4d-9b48-1de6209d2eb4" class="">在上一个问题的最后几行里面有。</p><p id="63f558b0-00f6-4412-ab73-0a09805b3903" class="">……等等，你不注册怎么来的这里？<em>你个肮脏的黑客。</em></p><p id="c924bb76-11bd-4200-8e64-ac0479d1e8a6" class="">希望看到这里的你们能够发现这个页面与其他页面的不同之处 :)</p></details></li></ul><h2 id="1eccf6e9-5cd3-4d54-882f-682c3d1f19c7" class="">权限 (Permissions)</h2><ul id="b2424eae-7dc4-40f8-be84-87ef533d0f72" class="bulleted-list"><li style="list-style-type:disc">根据 Notion 的说明，权限分为以下类型：(详细说明从英文版翻译得来)<ul id="7f8839b2-01df-46d7-9335-aa356f740e73" class="bulleted-list"><li style="list-style-type:circle"><code>Full access</code>：可以编辑和分享。</li></ul><ul id="70f1a6e8-210a-4c8a-8bbe-155225a8cb4d" class="bulleted-list"><li style="list-style-type:circle"><code>Can edit</code>：可以编辑，不可分享。仅限 Plus 用户。</li></ul><ul id="4d30dae6-1536-4c3a-bba3-889990f2b143" class="bulleted-list"><li style="list-style-type:circle"><code>Can comment</code>：可以查看和评论，不可编辑。</li></ul><ul id="af5fe5f4-1cac-49c1-b11c-c18593cf80a3" class="bulleted-list"><li style="list-style-type:circle"><code>Can view</code>：不可编辑或分享。</li></ul><ul id="c1fa208e-36c2-4ec2-a016-cfab22dd2ab7" class="bulleted-list"><li style="list-style-type:circle"><code>No access</code>：(无说明)</li></ul><p id="70366383-c6aa-42ee-975c-d93601dca8f8" class="">同时，对以上权限又有以下补充说明：</p><ul id="31d6c5d5-5242-46a8-b1f4-3de7cd3c06a3" class="bulleted-list"><li style="list-style-type:circle">除本页面以外，一般不对个人使用后四种权限。</li></ul><ul id="8c0458dc-f8a3-47d1-b284-f08e45030bc9" class="bulleted-list"><li style="list-style-type:circle">通过「Public Page」访问的权限被设定为类似「Can comment」权限的类型。在一般情况下，所有通过某个链接跳转到群文档的成员，默认均属于此类型。</li></ul><ul id="65dd816f-d1f3-495a-a538-ccc476a29fa8" class="bulleted-list"><li style="list-style-type:circle"><code>Full access</code> 权限在群文档中又称为「全文编辑」权限。</li></ul></li></ul><ul id="330c30a4-b8ad-44ec-a64d-26d72f00f74f" class="bulleted-list"><li style="list-style-type:disc">群文档的所有内容均归属于 @PumpkinJui 的 Notion 账号之下。其本人拥有类似全文编辑的权限，但等级更高。</li></ul><ul id="a2bb8277-f81c-458e-ac62-d1802e8743a0" class="bulleted-list"><li style="list-style-type:disc">群文档的全文编辑权限已合并至群管理员权限中，有且仅有本群管理员可参与群文档的全文编辑。</li></ul><ul id="252a110d-7db3-45ad-98f5-6590d9bc9c92" class="bulleted-list"><li style="list-style-type:disc">如有特殊需求，可向群内普通成员开放特定的单页或多页的编辑权限，但不包含全文编辑权限。</li></ul><h3 id="0ae77bc4-8430-4c88-ac6e-0d5b5b769b7c" class="">Owner</h3><ul id="047dfa82-d4b9-4bf4-9d5c-72175d8fe48c" class="bulleted-list"><li style="list-style-type:disc">不怎么会 Notion，因此至今没搞明白这个 property 是做什么用的。所以现在只是用来标标不是南瓜汁写的文章是谁写的，尤其用于《食用指南》部分。</li></ul><ul id="2aa42ff3-15d3-444c-b5e2-c57247a4ddef" class="bulleted-list"><li style="list-style-type:disc">@PumpkinJui 是所有文章的默认 Owner，并且不应被去除。</li></ul><ul id="561e7df5-d07e-46be-aa44-870d4f724ba7" class="bulleted-list"><li style="list-style-type:disc">全文编辑权限不受此 property 影响。</li></ul><h2 id="6f1462b0-ed97-4cf3-9567-84750635dc73" class="">图片</h2><ul id="a52e34fe-e27f-4165-811c-164216a75588" class="bulleted-list"><li style="list-style-type:disc">每个页面必须有合适的封面图 (cover)。可以为 MC 的官方壁纸，或和该页面内容相契合的截图等。</li></ul><ul id="3dc5be31-f764-43b3-92fb-6307561e8791" class="bulleted-list"><li style="list-style-type:disc">每个页面必须有合适的图标 (icon)。尽可能使用从 <a href="https://minecraft.fandom.com/zh">Minecraft Wiki</a> 下载的 MC 原版物品的图标。</li></ul><ul id="b3b684c2-2c13-442a-afdb-20829610a25b" class="bulleted-list"><li style="list-style-type:disc">由于 Notion 的免费版相关限制，图片最大仅能为 5 MB。如有图片过大而无法上传的情况发生，可以使用下述工具之一进行图片压缩：<ul id="a32a1d60-df1a-4dea-9494-81e4fae1cdc5" class="bulleted-list"><li style="list-style-type:circle"><a href="https://squoosh.app/">https://squoosh.app/</a></li></ul><ul id="b643e7d8-2729-45c9-aa01-9a5f53c2abff" class="bulleted-list"><li style="list-style-type:circle"><a href="https://ol.woobx.cn/tool/image-compressor">https://ol.woobx.cn/tool/image-compressor</a></li></ul></li></ul><h2 id="360cdcf1-4c81-48ab-9539-d02590d9f5db" class="">标签 (Tags)</h2><ul id="59eaf1ac-c78a-478f-a6ec-9b5a3c7a9f02" class="block-color-default bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue_background">Undone</mark> 标签指示该页面尚未完成。</li></ul><ul id="772df396-60d3-4b37-9ed5-2d39ae0deaa7" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background">Examination Needed</mark> 标签指示该页面需要进行初级审查，包括内容审核和排版等。</li></ul><ul id="9dc576b9-b9b1-4bb1-aeb5-c66d43fd6be7" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red_background">Advanced Examination Required</mark> 标签指示该页面需要接受高级审查，然后才可进行 verificaion。<ul id="dbd51fa8-9191-47d0-a793-5e4418cea88e" class="bulleted-list"><li style="list-style-type:circle">不添加此标签的页面仅需接受 @南瓜汁 和 @鸽子 的初级审查即可进行 verification，即标记页面已经完成。</li></ul><ul id="62ae4bf3-6d5b-4d82-9ec2-54cda452906e" class="bulleted-list"><li style="list-style-type:circle">如果以上两位管理中任一位认为该页面具有重大问题 (如事实错误众多等)，则可以直接添加此标签，并在群里 @自己指定的高级审查人员。</li></ul><ul id="e63e8714-179d-4dde-81c6-e9d0cb7debdb" class="bulleted-list"><li style="list-style-type:circle">高级审查人员仅能指定一位，仅能从管理员团队中指定。高级审查人员必须比初级审查人员更加了解该页面描述的内容。</li></ul><ul id="4bcee94e-c54c-435f-9220-a33dcebf2eb1" class="bulleted-list"><li style="list-style-type:circle">可以指定另一位初级审查人员为高级审查人员，但不能指定自己。</li></ul></li></ul><h2 id="d4d0b462-ffbe-4fcd-89b8-af1e2ad142e8" class="">盘古之白</h2><ul id="830663a6-3e45-4a7c-96fc-e7d6b3161ad5" class="bulleted-list"><li style="list-style-type:disc">所有群文档页面都应该适配「盘古之白」。</li></ul><ul id="b4b4f49e-123e-4ce6-95d2-8042ab172e83" class="bulleted-list"><li style="list-style-type:disc">何谓「盘古之白」？摘自 <a href="https://sspai.com/prime/story/markdown-linter-a-primer">给你的 Markdown 挑挑刺——语法检查器入门与进阶 | 少数派</a>：</li></ul><blockquote id="f40ca4ee-a31d-4689-ab06-6bdcdf754e31" class="">中英文之间加入空隙，是为了实现视觉上的区隔，更加美观和易读。理想情况下，这种「空隙」应当由排版引擎自动加入，宽度宜为 1/4 个全角空格（em）。但由于数字排版环境复杂多变，在大多数时候（包括最常见的网页环境）不能指望排版引擎有这种能力，因此只能退而求其次，手动插入一个半角空格（因其宽度通常接近于 1/4 em），达到类似效果。</blockquote><ul id="b54477c6-5218-4e2e-8a65-dd5570322bab" class="bulleted-list"><li style="list-style-type:disc">什么时候添加「盘古之白」？<p id="768b4ab8-07cf-4cd0-ac97-c76c8dc3e87d" class="">在群文档中规定如下：</p><ul id="a50dcb45-55e8-45bf-b389-b7895d0aac5e" class="bulleted-list"><li style="list-style-type:circle">汉字与英文字母之间，如 <code>.mcworld 文件</code> 。</li></ul><ul id="3c34fde6-13e6-4f5e-9028-2c1bf206c9fa" class="bulleted-list"><li style="list-style-type:circle">汉字与阿拉伯数字之间，如 <code>版本 1.20</code>。</li></ul><ul id="2901c855-92a5-4fff-84a7-f14f5fbed3ce" class="bulleted-list"><li style="list-style-type:circle">汉字与英文标点之间，如 <code>这些 () 都是 &lt;&gt; 以及 {} 还有 [] 并且 &amp;#%</code>。</li></ul><ul id="c30d60a3-cee0-4251-a00b-977ea96594c0" class="bulleted-list"><li style="list-style-type:circle">「@群成员」字符串的两边，如 <code>请联系 @PumpkinJui 以参与编辑</code>。</li></ul><ul id="ccddecbd-fc65-4d14-b617-1eb85597148a" class="bulleted-list"><li style="list-style-type:circle"><code>代码块</code> 两边。</li></ul><ul id="f883f40f-aa96-4e82-8b40-7817796d6087" class="bulleted-list"><li style="list-style-type:circle"><em>斜体字</em> 两边。</li></ul><p id="763f66a9-e6f9-4b8e-98d9-43e5190e8407" class="">明确<strong>不需要「盘古之白」的情况包括：</strong></p><ul id="bbb78b3c-f722-4f19-abfd-7a3a6433b24c" class="bulleted-list"><li style="list-style-type:circle">英文字母、阿拉伯数字、代码块或斜体字与中文标点紧邻时。如 <code>以下文件类型：mcworld、mcpack 均为 MC 资源文件类型</code>。</li></ul><ul id="50f1b7d6-dda9-4332-a59b-924be98cbdc7" class="bulleted-list"><li style="list-style-type:circle">英文字母或阿拉伯数字与英文标点紧邻时。在此情况下应对英文标点（而不是对字母或数字）使用「盘古之白」。如 <code>MC 资源文件 (mcworld、mcpack 等)</code>。</li></ul><ul id="3b03eb78-d154-4ca8-9b37-ed6ece29f0f6" class="bulleted-list"><li style="list-style-type:circle">中英文标点紧邻时。如 <code>可以被 MC 直接导入的是 MC 资源文件(mcworld、mcpack等)。</code></li></ul><ul id="dea32b0a-d89a-4183-84b0-1191257ef42a" class="bulleted-list"><li style="list-style-type:circle">破折号和省略号。如 <code>——PumpkinJui</code>、<code>是的——确实</code>、<code>是的……确实</code>。</li></ul><ul id="d354d311-f9d4-48a1-88df-e21397ce92b4" class="bulleted-list"><li style="list-style-type:circle">链接以中文形式显示时。如「一个<a href="https://example.com">示例</a>网站」。但「一个 <a href="https://example.com">example</a> 网站」仍需要。</li></ul></li></ul><h2 id="ad3398b5-a587-40bd-b4f6-35028987f353" class="">直角引号</h2><ul id="bb5290dc-6469-4061-b8e7-f7954c98574e" class="bulleted-list"><li style="list-style-type:disc">为避免引号的「弯与直」和「中文还是英文」等问题，推荐使用直角引号。<ul id="c0a4e404-7d84-44c8-9fd6-459bdb8e4858" class="bulleted-list"><li style="list-style-type:circle">「弯与直」：弯引号 <code>“”‘’</code> 与直引号 <code>&quot;&#x27;</code> 之争。它们的码位按顺序分别是：<code>U201C U201D U2018 U2019 U0022 U0027</code>。</li></ul><ul id="a1e46ce5-7395-4321-b283-789e07e8877b" class="bulleted-list"><li style="list-style-type:circle">「中文还是英文」：引号是中文符号还是英文符号之争。影响「盘古之白」的添加。</li></ul><ul id="6ff7b245-1d0a-47eb-81b4-2995c2f796b4" class="bulleted-list"><li style="list-style-type:circle">「盘古之白」：难以判断是否应添加「盘古之白」，因为某些字体会把弯引号渲染为半角效果，有些则是全角。</li></ul></li></ul><ul id="e2a0f37c-03ae-4885-915e-b987b53df0b1" class="bulleted-list"><li style="list-style-type:disc">直角引号为 <code>「」</code>，码位为 <code>U300C U300D</code>。</li></ul></div></article></body></html>

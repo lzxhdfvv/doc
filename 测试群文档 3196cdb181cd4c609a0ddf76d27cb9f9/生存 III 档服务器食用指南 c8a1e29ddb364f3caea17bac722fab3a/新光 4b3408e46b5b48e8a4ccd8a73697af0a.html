@@ -1,0 +1,679 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>新光</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4b3408e4-6b5b-48e8-a4cc-d8a73697af0a" class="page sans"><header><img class="page-cover-image" src="%E6%96%B0%E5%85%89%204b3408e46b5b48e8a4ccd8a73697af0a/2023-09-23_19.49.14.jpg" style="object-position:center 50%"/><h1 class="page-title">新光</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesPerson"><path d="M10.9536 7.90088C12.217 7.90088 13.2559 6.79468 13.2559 5.38525C13.2559 4.01514 12.2114 2.92017 10.9536 2.92017C9.70142 2.92017 8.65137 4.02637 8.65698 5.39087C8.6626 6.79468 9.69019 7.90088 10.9536 7.90088ZM4.4231 8.03003C5.52368 8.03003 6.42212 7.05859 6.42212 5.83447C6.42212 4.63843 5.51245 3.68945 4.4231 3.68945C3.33374 3.68945 2.41846 4.64966 2.41846 5.84009C2.42407 7.05859 3.32251 8.03003 4.4231 8.03003ZM1.37964 13.168H5.49561C4.87231 12.292 5.43384 10.6074 6.78711 9.51807C6.18628 9.14746 5.37769 8.87231 4.4231 8.87231C1.95239 8.87231 0.262207 10.6917 0.262207 12.1628C0.262207 12.7974 0.548584 13.168 1.37964 13.168ZM7.50024 13.168H14.407C15.4009 13.168 15.7322 12.8423 15.7322 12.2864C15.7322 10.8489 13.8679 8.88354 10.9536 8.88354C8.04492 8.88354 6.17505 10.8489 6.17505 12.2864C6.17505 12.8423 6.50635 13.168 7.50024 13.168Z"></path></svg></span>Owner</th><td><span class="user"><img src="../%E2%80%BC%EF%B8%8F%E5%85%A5%E7%BE%A4%E5%BF%85%E8%AF%BB%203b5fc443be1b4b5dabda53be45551830/06_IMG_20230422_214251.jpg" class="icon user-icon"/>PumpkinJui</span><span class="user"><img src="../%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E5%AE%9A%200d5fd77de1e44e9b966b52b675e4f498/1543585291_dc31bb0eb7ba8c94503d9d67ac17c845.jpg" class="icon user-icon"/>YZBWDLT</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><td><span class="selected-value select-value-color-blue">Undone</span></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Last edited time</th><td><time>@2023年9月27日 1:23</time></td></tr><tr class="property-row property-row-last_edited_by"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedBy"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 10.4229C6.05176 10.4229 4.54785 11.1133 3.83008 11.9131C2.90039 10.9082 2.33301 9.55469 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 9.55469 13.1064 10.9082 12.1699 11.9131C11.4521 11.1133 9.94824 10.4229 8 10.4229ZM8 9.30176C9.32617 9.30859 10.3516 8.18066 10.3516 6.71094C10.3516 5.33008 9.31934 4.18164 8 4.18164C6.6875 4.18164 5.6416 5.33008 5.64844 6.71094C5.65527 8.18066 6.68066 9.28809 8 9.30176Z"></path></svg></span>Last edited by</th><td><span class="user"><img src="../%E2%80%BC%EF%B8%8F%E5%85%A5%E7%BE%A4%E5%BF%85%E8%AF%BB%203b5fc443be1b4b5dabda53be45551830/%25E5%25A4%25B4%25E5%2583%258F.jpg" class="icon user-icon"/>Pigeon_K</span></td></tr></tbody></table></header><div class="page-body"><h2 id="8f5427a8-76e6-4bc9-a801-ed08e9eb4a82" class="">概述</h2><ul id="04917883-819c-4ec4-8159-43c5710de52f" class="bulleted-list"><li style="list-style-type:disc">新光镇（在大多数情况下省略其规模而称为「新光」）是全服第一个城镇，所有玩家的出生点即在此地。新光镇由若干大岛组成，四周临海，全城呈「J」型发展。根据不同区域的职能规划不同，分为六区：初晓区、昌兴区、沐辉区、随明区、晨曦区和浮霞区。「新光镇」未来可能会因规模增大而改称「新光市」。</li></ul><ul id="cde08dee-a578-47b1-9988-8cc10d7ad4dd" class="bulleted-list"><li style="list-style-type:disc">在新光境内，实行公有制，所有玩家都可以任取城镇内的资源（不包括管制资源和未明确说明「资源可自取」的住宅内的资源）。但所有玩家也应当有自觉意识，例如不得过多取走珍贵物资，以及在新光境内生活的玩家们应当持有分享开放精神。</li></ul><ul id="25c75a17-d11d-45cb-bfe8-8b1bffce44b8" class="bulleted-list"><li style="list-style-type:disc">在新光境内建造一切建筑之前，必须申请并报备所需占用的土地位置和面积。</li></ul><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">主要区划</summary><div class="indented"><ul id="75df7a79-d563-4444-aeca-6ec16764daf8" class="toggle"><li><details open=""><summary>初晓区</summary><ul id="21b3e9c9-03b4-4f8b-8a3b-8c17ecb34890" class="bulleted-list"><li style="list-style-type:disc">初晓区是新光镇主城区，是居住地和工作场所的主要聚集地，也是玩家出生点的所在地。初晓区的区划为出生点所在的大岛。</li></ul><ul id="e11eb611-812e-44f4-966d-c2446aa85a87" class="bulleted-list"><li style="list-style-type:disc">主要道路包括一环、二环、中央大街、迎宾路、工农路等</li></ul><ul id="c8cc54ad-cc12-4b52-8683-be9ddaa56fa6" class="bulleted-list"><li style="list-style-type:disc">主要建筑和地点包括多数成员的民居、出生点、仓库、新光站（在建）、屠龙纪念塔、染坊（艺术馆）、图书馆、餐厅、临时牧场、临时农场等</li></ul></details></li></ul><ul id="10df9109-5716-4f6f-b7c9-84ed48f64215" class="toggle"><li><details open=""><summary>昌兴区</summary><ul id="3c6783a7-f74b-4cfe-a5b1-1d3c0481e0f8" class="bulleted-list"><li style="list-style-type:disc">昌兴区是新光镇工业区，是全服重要原材料和生电机器的主要聚集地。昌兴区的区划为初晓区南部的大岛。</li></ul><ul id="5eeae725-de3f-4724-953a-d4baa7727ba4" class="bulleted-list"><li style="list-style-type:disc">主要道路包括金交街、初工路和一大矿大道。</li></ul><ul id="ea22f82d-5f9f-412d-ab69-e63a2c00b772" class="bulleted-list"><li style="list-style-type:disc">主要建筑和地点包括猪人塔、村交所、火药塔、刷铁机、新光西站（在建）、临时住所、一大矿、三大转炉、海带机、甘蔗机、史莱姆区块等</li></ul></details></li></ul><ul id="1a5d396f-c3ca-4c5f-b89d-30dc6d5cac95" class="toggle"><li><details open=""><summary>沐辉区</summary><ul id="91a45054-55c7-4b65-83e5-89aec52ded30" class="bulleted-list"><li style="list-style-type:disc">沐辉区是新光镇较北部发展中区域，此处有全服门类最齐全、规模面积最大的林场，以及一个在建中的墓园。沐辉区的区划为初晓区北部的大岛。</li></ul><ul id="3a27c8ff-c54d-40a4-8d3b-1ccb59f13dfb" class="bulleted-list"><li style="list-style-type:disc">主要道路包括林场路、沐辉路（北三环）、中央北大桥</li></ul><ul id="8aebb90e-c1f0-44c4-91fb-4008237a97f5" class="bulleted-list"><li style="list-style-type:disc">主要建筑和地点包括林场和墓园</li></ul></details></li></ul><ul id="fd4d66b0-5a10-4c5a-8cf3-5ba480c93b91" class="toggle"><li><details open=""><summary>浮霞区</summary><ul id="08484b1d-6afe-472f-99aa-53ed0a891763" class="bulleted-list"><li style="list-style-type:disc">浮霞区是新光镇西部海域区域，此处计划建成全服第一号可发展空岛和海域设施。浮霞区的区划为初晓区西部的海域区域。</li></ul><ul id="ab34ddaa-9efb-448f-9400-925046320b75" class="bulleted-list"><li style="list-style-type:disc">主要道路包括浮霞一路</li></ul><ul id="b57f29bf-15d8-4dae-a370-c85152e096d2" class="bulleted-list"><li style="list-style-type:disc">主要建筑和地点包括空岛和游乐园</li></ul></details></li></ul><ul id="ad43e943-aea7-4dc9-89f9-8c8e8b718c30" class="toggle"><li><details open=""><summary>随明区</summary><ul id="87ae63ec-0f21-448e-adb6-2b198e8dacee" class="bulleted-list"><li style="list-style-type:disc">随明区是新光镇北部区域，此处计划建成新光最大动物园、牧场以及集成牧业相关工业机器。</li></ul><ul id="f97475fb-3bdc-4c88-bd37-d4c5741079bf" class="bulleted-list"><li style="list-style-type:disc">当前仍处于规划状态，尚未开始建设。预计初晓区的临时牧场将迁移到此处</li></ul><ul id="b7463c65-850a-41a7-aa67-4ce8b0a66d79" class="bulleted-list"><li style="list-style-type:disc">主要建筑和地点包括动物园（待建）、新牧场（待建）、随明工业区（待建）和北港口（待修整）</li></ul></details></li></ul><ul id="57336a77-a140-4030-9c39-bdb8152ace70" class="toggle"><li><details open=""><summary>晨曦区</summary><ul id="6d5e2771-ff40-4892-97d4-43a66a3d56b4" class="bulleted-list"><li style="list-style-type:disc">晨曦区处于沐辉区东侧的岛上，此处计划建成新光大农场以及相关工业设施。</li></ul><ul id="596b8aba-1735-49e1-80c2-8a76d51bf2c8" class="bulleted-list"><li style="list-style-type:disc">当前仍处于规划状态，尚未开始建设。预计初晓区二环外的农场将迁移到此处</li></ul><ul id="3a63061a-62a3-4669-bb6c-3c2400b7e055" class="bulleted-list"><li style="list-style-type:disc">主要建筑和地点包括农场、晨曦工业区和部分民居</li></ul></details></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">主要道路</summary><div class="indented"><p id="1c7ca3a4-cbb5-468d-8928-6fad58469e44" class="">初晓区有大量的路牌指示玩家东西南北方向和路名地名，但这可能造成性能骤降。<del><em><em><em><em><em><em><em><em>已经造成性能骤降了 (恼)</em></em></em></em></em></em></em></em></del></p><p id="1a8af95c-c0b9-4871-a6a0-37786ce027ff" class=""><strong>一环路</strong></p><table id="bff4da35-f675-4bf3-83ff-eb5fcb526630" class="simple-table"><tbody><tr id="849455dd-5faf-4188-8002-d948e5e2e957"><th id="bFx&lt;" class="simple-table-header-color simple-table-header" style="width:63.600006103515625px">路名</th><td id="oiV~" class="" style="width:139.6px">信标路（东一环）</td><td id="tR_t" class="" style="width:139.6px">上泽路（西一环）</td><td id="}Q[J" class="" style="width:160.60000610351562px">一环南路（南一环）</td><td id="pJoO" class="" style="width:139.60000610351562px">原村路（北一环）</td></tr><tr id="57039d26-3b03-4925-960b-221a7eab2fa7"><th id="bFx&lt;" class="simple-table-header-color simple-table-header" style="width:63.600006103515625px">走向</th><td id="oiV~" class="" style="width:139.6px">南北</td><td id="tR_t" class="" style="width:139.6px">南北</td><td id="}Q[J" class="" style="width:160.60000610351562px">东西</td><td id="pJoO" class="" style="width:139.60000610351562px">东西</td></tr></tbody></table><p id="4226aa4b-eb7e-4898-a275-c160668ec6e9" class="">二<strong>环路</strong></p><table id="418c247b-9b05-40c8-9b78-4bc88eca53c9" class="simple-table"><tbody><tr id="33267ca2-c605-49a6-8dfc-ae5438ad529e"><th id="ooNh" class="simple-table-header-color simple-table-header" style="width:67px">路名</th><td id="LBeX" class="" style="width:140.6875px">通工路（东二环）</td><td id="o]IP" class="" style="width:194.66250610351562px">一大矿大道高架（西二环）</td><td id="`p~w" class="" style="width:147.0999984741211px">通工路（南二环）</td><td id="Pfb;" class="" style="width:162px">一大矿大路（北二环）</td></tr><tr id="fee23a18-771a-49bf-843b-903c2ae83057"><th id="ooNh" class="simple-table-header-color simple-table-header" style="width:67px">走向</th><td id="LBeX" class="" style="width:140.6875px">南北</td><td id="o]IP" class="" style="width:194.66250610351562px">南北</td><td id="`p~w" class="" style="width:147.0999984741211px">东西</td><td id="Pfb;" class="" style="width:162px">东西</td></tr></tbody></table><p id="ebb58734-6130-4655-a2f7-53d79a8f647e" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">主要建筑和地点</summary><div class="indented"><ul id="563f7ac0-5bce-4768-8c10-9646c5533874" class="toggle"><li><details open=""><summary>出生点</summary><ul id="3d446602-e904-4dc4-8229-0d63b34b5a72" class="bulleted-list"><li style="list-style-type:disc">是所有玩家的出生点</li></ul><ul id="950af2d9-2590-4964-9d28-a9d956785796" class="bulleted-list"><li style="list-style-type:disc">位于初晓区 - 通工路（东二环）和迎宾路的交叉路口</li></ul></details></li></ul><ul id="4f4107a8-b709-495e-ae4c-e555987aa961" class="toggle"><li><details open=""><summary>仓库</summary><ul id="55210c1e-ab53-4d55-91c3-a6c2fbdb4670" class="bulleted-list"><li style="list-style-type:disc">存储新光的大部分物资</li></ul><ul id="2df00ff0-6956-4788-92ac-a0c0992a1c6f" class="bulleted-list"><li style="list-style-type:disc">非管制物资可任取，但不得一次取完；存物品请一律存到仓库门口的箱子里（除非你非常明确什么东西该存放在什么地方）</li></ul><ul id="12a4cd10-650b-4c3d-b424-bef9384820a0" class="bulleted-list"><li style="list-style-type:disc">位于初晓区 - 迎宾路（镇中心区域）</li></ul></details></li></ul><ul id="2429b8b6-6785-461e-8e2d-f8fc71e2c377" class="toggle"><li><details open=""><summary>新光站</summary><ul id="71cf0aed-dc45-40fb-83fd-3c2711829ecf" class="bulleted-list"><li style="list-style-type:disc">是新光的下界交通站台，同时拥有地铁站和火车站可供出行</li></ul><ul id="f1d97483-4eca-4b81-922e-4f8eb5e3972a" class="bulleted-list"><li style="list-style-type:disc">目前仍处于在建状态，但地铁站（的 1 号线）已经投入使用</li></ul><p id="bdeeda67-7ba5-40e2-b1db-1dd3290c18f6" class="">
+</p></details></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">铁路规划</summary><div class="indented"><figure id="ebe35ccf-0b0f-4744-a3fd-44e311002f0a" class="image"><a href="%E6%96%B0%E5%85%89%204b3408e46b5b48e8a4ccd8a73697af0a/RMP_1695406662899.png"><img style="width:912px" src="%E6%96%B0%E5%85%89%204b3408e46b5b48e8a4ccd8a73697af0a/RMP_1695406662899.png"/></a></figure></div></details><p id="8cdb110b-b5b2-455b-bfcf-5129cf1656e9" class="">
+</p></div></article></body></html>
